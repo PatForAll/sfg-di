@@ -14,12 +14,12 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("## I'm in the LCDB Constructor!");
     }
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         System.out.println("## The LCDB has been terminated.");
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         System.out.println("## The LCDB has its properties set.");
     }
 

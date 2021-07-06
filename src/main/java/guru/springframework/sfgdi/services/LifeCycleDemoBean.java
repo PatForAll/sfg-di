@@ -37,4 +37,12 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("## The Post Construct annotated method has been called.");
     }
+
+    public void beforeInit() {
+        System.out.println("## I'm from CustomPostProcessor before Init!");
+    }
+
+    public void afterInit() {
+        System.out.println("## I'm from CustomPostProcessor after Init!");
+    }
 }

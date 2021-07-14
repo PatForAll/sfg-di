@@ -1,5 +1,6 @@
 package guru.springframework.sfgdi.config;
 
+import com.springframework.property.PropertyServiceFactory;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
@@ -10,6 +11,17 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    PropertyServiceFactory propertyServiceFactory() { return new PropertyServiceFactory(); }
+
+    @Profile({"first", "default"})
+    @Bean("propertyGreetingService")
+    GreetingService propertyGreetingService(PropertyServiceFactory propertyServiceFactory) { return propertyServiceFactory.getPropertyService("first"); }
+
+    @Profile("second")
+    @Bean("propertyGreetingService")
+    GreetingService secondPropertyGreetingService(PropertyServiceFactory propertyServiceFactory) { return propertyServiceFactory.getPropertyService("second"); }
 
     @Bean
     ConstructorGreetingService constructorGreetingService() {

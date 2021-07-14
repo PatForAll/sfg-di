@@ -21,11 +21,6 @@ public class GreetingServiceConfig {
     @Bean("propertyGreetingService")
     GreetingService secondPropertyGreetingService(PropertyServiceFactory propertyServiceFactory) { return propertyServiceFactory.getPropertyService("second"); }
 
-    //@Bean
-    ConstructorGreetingService constructorGreetingService() {
-        return new ConstructorGreetingService();
-    }
-
     @Bean
     SetterGreetingService setterGreetingService() {
         return new SetterGreetingService();

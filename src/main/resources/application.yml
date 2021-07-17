@@ -3,7 +3,6 @@ spring:
       active:
         - second
         - EN
-        - dev
 guru:
   username: YmlUserName
   password: YmlPassword
